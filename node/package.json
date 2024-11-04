@@ -7,27 +7,28 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch index.ts",
+    "dev": "nodemon --exec tsx watch index.ts",
     "build": "tsc",
-    "start": "node --import tsx index.ts",
+    "start": "node dist/index.js",
     "clean": "rimraf dist",
     "build:clean": "pnpm clean && pnpm build",
     "typecheck": "tsc --noEmit",
-    "start:prod": "cross-env NODE_ENV=production node --import tsx index.ts"
+    "start:prod": "cross-env NODE_ENV=production node dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/lodash": "^4.17.12",
     "@types/node": "^22.8.1",
+    "nodemon": "^3.1.7",
     "rimraf": "^6.0.1",
     "tslib": "^2.8.0",
     "tsx": "^4.19.1",
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "simple-web23": "^0.0.20"
+    "@aws-sdk/client-s3": "^3.685.0",
+    "mongodb": "~6.10.0",
+    "simple-web23": "^0.0.26"
   }
 }
